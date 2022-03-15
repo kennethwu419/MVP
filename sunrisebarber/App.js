@@ -39,7 +39,7 @@ const App = () => {
       <TextInput style={styles.input} value='' placeholder='email'/>
       <TextInput style={styles.input} value='' placeholder='password'/>
       <TouchableOpacity style={styles.button}>
-        <Text>LOG-IN</Text>
+        <Text>LOGIN</Text>
       </TouchableOpacity>
       <TouchableOpacity>
         <Text style={{ color: 'white', marginTop: 10, fontWeight: 'bold' }}>SIGN-UP</Text>

@@ -1,16 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import type {Node} from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AppLogin from './AppLogin.js';
 import {
   SafeAreaView,
   ScrollView,
@@ -23,6 +12,7 @@ import {
   Image,
   TextInput
 } from 'react-native';
+
 import {
   Colors,
   DebugInstructions,
@@ -31,13 +21,25 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App = () => {
+const AppLogin = () => {
   return (
-    <NavigationContainer>
-      <AppLogin />
-    </NavigationContainer>
+    <View style={styles.container}>
+      <Image source={require('./assets/logo.png')}
+       style={{width: 150, height: 150}} />
+      <Text style={styles.baseText}>SUNRISE BARBER© 2022</Text>
+      <Text style={styles.lowerText}>TAIPEI, TAIWAN</Text>
+      <TextInput style={styles.input} value='' placeholder='email'/>
+      <TextInput style={styles.input} value='' placeholder='password'/>
+      <TouchableOpacity style={styles.button}>
+        <Text>LOGIN</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={{ color: 'white', marginTop: 10, fontWeight: 'bold' }}>SIGN-UP</Text>
+      </TouchableOpacity>
+    </View>
   )
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -75,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default AppLogin;

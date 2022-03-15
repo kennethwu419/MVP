@@ -48,7 +48,7 @@ const AppLogin = ({ navigation }) => {
         onChangeText={setPasswordInput}
       />
       <TouchableOpacity style={styles.button}>
-        <Text>
+        <Text onPress={() => navigation.navigate('home')}>
           LOGIN
         </Text>
       </TouchableOpacity>

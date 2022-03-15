@@ -1,5 +1,4 @@
-import React from 'react';
-import type {Node} from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -21,20 +20,42 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const AppLogin = () => {
+const AppLogin = ({ navigation }) => {
+  const [userInput, setUserInput] = React.useState('');
+  const [passwordInput, setPasswordInput] = React.useState('');
   return (
     <View style={styles.container}>
-      <Image source={require('./assets/logo.png')}
-       style={{width: 150, height: 150}} />
-      <Text style={styles.baseText}>SUNRISE BARBER© 2022</Text>
-      <Text style={styles.lowerText}>TAIPEI, TAIWAN</Text>
-      <TextInput style={styles.input} value='' placeholder='email'/>
-      <TextInput style={styles.input} value='' placeholder='password'/>
+      <Image
+        source={require('./assets/logo.png')}
+        style={{width: 150, height: 150}}
+      />
+      <Text style={styles.baseText}>
+        SUNRISE BARBER© 2022
+      </Text>
+      <Text style={styles.lowerText}>
+        TAIPEI, TAIWAN
+      </Text>
+      <TextInput
+        style={styles.input}
+        placeholder='email'
+        value={userInput}
+        onChangeText={setUserInput}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder='password'
+        value={passwordInput}
+        onChangeText={setPasswordInput}
+      />
       <TouchableOpacity style={styles.button}>
-        <Text>LOGIN</Text>
+        <Text>
+          LOGIN
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity>
-        <Text style={{ color: 'white', marginTop: 10, fontWeight: 'bold' }}>SIGN-UP</Text>
+        <Text style={{ color: 'white', marginTop: 10, fontWeight: 'bold' }}>
+          SIGN-UP
+        </Text>
       </TouchableOpacity>
     </View>
   )

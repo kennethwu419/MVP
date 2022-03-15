@@ -38,6 +38,12 @@ const App = () => {
       <Text style={styles.lowerText}>TAIPEI, TAIWAN</Text>
       <TextInput style={styles.input} value='' placeholder='email'/>
       <TextInput style={styles.input} value='' placeholder='password'/>
+      <TouchableOpacity style={styles.button}>
+        <Text>LOGIN</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={{ color: 'white', marginTop: 10, fontWeight: 'bold' }}>SIGN-UP</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -67,6 +73,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     backgroundColor: 'white'
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    marginBottom: 10,
+    marginTop: 10,
+    width: 180,
+    borderWidth: 1,
   },
 });
 

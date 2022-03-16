@@ -41,7 +41,7 @@ const AppCalendar = () => {
     let tempDate = date.toString().split(' ');
     console.log('this is date obj', tempDate);
     return date !== ''
-    ? `${tempDate[4]}`
+    ? `${tempDate[4].slice(0, 5)} PM`
     : '';
   }
 
@@ -72,7 +72,7 @@ const AppCalendar = () => {
           fontSize: 12,
           marginTop: 5,
           color: '#757677',
-          marginBottom: 100
+          marginBottom: 10
         }}
       >
         Select your preferred date+time

@@ -17,7 +17,12 @@ const AppHome = ({ navigation }) => {
     <View style={styles.container}>
       <Image
         source={require('./assets/logo-white.png')}
-        style={{width: 150, height: 150, alignSelf: 'center', marginTop: 100}}
+        style={{
+          width: 150,
+          height: 150,
+          alignSelf: 'center',
+          marginTop: 100
+        }}
       />
       <Text
         style={{

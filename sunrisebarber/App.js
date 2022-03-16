@@ -19,7 +19,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerShown: true
+          headerShown: false
         }}
       >
         <Stack.Screen

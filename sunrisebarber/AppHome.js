@@ -23,9 +23,78 @@ import {
 const AppHome = () => {
   return (
     <View style={styles.container}>
-      <Text>
-        new screen
+      <Image
+        source={require('./assets/logo-white.png')}
+        style={{width: 150, height: 150, alignSelf: 'center', marginTop: 100}}
+      />
+      <Text
+        style={{
+          alignSelf: 'center',
+          fontWeight: 'bold',
+          fontSize: 30,
+          color: '#757677'
+        }}
+      >
+        Select Barber
       </Text>
+      <Text
+        style={{
+          alignSelf: 'center',
+          fontSize: 12,
+          marginTop: 5,
+          color: '#757677'
+        }}
+      >
+        Check the availability of your preferred barber
+      </Text>
+      <View style={styles.imageContainer}>
+        <Image
+          source={require('./assets/barber1.png')}
+          style={{
+            borderWidth: 0.5,
+            width: 150,
+            height: 200,
+            marginLeft: 20,
+            marginRight: 5,
+            marginTop: 0
+          }}
+        />
+        <Image
+          source={require('./assets/barber2.png')}
+          style={{
+            borderWidth: 0.5,
+            width: 150,
+            height: 200,
+            marginLeft: 5,
+            marginRight: 20,
+            marginTop: 0
+          }}
+        />
+      </View>
+      <View style={styles.imageContainer}>
+        <Image
+          source={require('./assets/barber3.png')}
+          style={{
+            borderWidth: 0.5,
+            width: 150,
+            height: 200,
+            marginLeft: 20,
+            marginRight: 5,
+            marginBottom: 115,
+          }}
+        />
+        <Image
+          source={require('./assets/barber4.png')}
+          style={{
+            borderWidth: 0.5,
+            width: 150,
+            height: 200,
+            marginLeft: 5,
+            marginRight: 20,
+            marginBottom: 115,
+          }}
+        />
+      </View>
     </View>
   )
 }
@@ -34,36 +103,13 @@ const AppHome = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E95515',
+    backgroundColor: '#FFFFFF',
+  },
+  imageContainer: {
+    flex: 1,
     alignItems: 'center',
+    flexDirection: 'row',
     justifyContent: 'center',
-  },
-  baseText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
-  lowerText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 10,
-    marginBottom: 5
-  },
-  input: {
-    height: 40,
-    margin: 5,
-    width: 180,
-    borderWidth: 1,
-    padding: 10,
-    backgroundColor: 'white'
-  },
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-    marginBottom: 10,
-    marginTop: 10,
-    width: 180,
-    borderWidth: 1,
   },
 });
 

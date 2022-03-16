@@ -9,10 +9,32 @@ import {
   View,
   TouchableOpacity,
   Image,
-  TextInput
+  TextInput,
+  Platform,
+  Button,
 } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const AppSelect = () => {
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+  const [text, setText] = useState('empty');
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+    let tempDate = new Date(currentDate);
+    let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
+    let fTime = 'Hours: ' + tempDate.getHours() + ' | Minutes: ' + tempDate.getMinutes();
+    setText(fDate + '\n' + fTime);
+  }
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  }
+
   return (
     <View style={styles.container}>
       <Image
@@ -39,6 +61,29 @@ const AppSelect = () => {
       >
         Select your preferred date+time
       </Text>
+      <View>
+        <Text style={{ fontWeight: 'bold', fontSize: 10}}>
+          {text}
+        </Text>
+        <Button
+          title='Select Date'
+          onPress={() => showMode('date')}
+        />
+        <Button
+          title='Select Time'
+          onPress={() => showMode('time')}
+        />
+      </View>
+      {show && (
+        <DateTimePicker
+          testId='dateTimePicker'
+          value={date}
+          mode={mode}
+          is24Hour={false}
+          display='default '
+          onChange={onChange}
+        />
+      )}
     </View>
   )
 }

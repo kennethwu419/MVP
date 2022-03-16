@@ -13,9 +13,14 @@ import {
   Platform,
   Button,
 } from 'react-native';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 const AppCalendar = () => {
   const [show, setShow] = useState(false);
+  const [mode, setMode] = useState('date');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+
   const showMode = () => {
     setShow(true);
   }
@@ -53,6 +58,27 @@ const AppCalendar = () => {
       >
         Select your preferred date+time
       </Text>
+      <Button
+        title='Date'
+        onPress={() => {
+          showMode();
+          setMode('date');
+        }}
+      />
+      <Button
+        title='Time'
+        onPress={() => {
+          showMode();
+          setMode('time');
+        }}
+      />
+      <DateTimePickerModal
+        isVisible={show}
+        mode={mode}
+        onConfirm={handleConfirm}
+        onCancel={hideMode}
+        is24Hour={false}
+      />
     </View>
   )
 }

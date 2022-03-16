@@ -26,9 +26,9 @@ const AppSelect = () => {
     setShow(Platform.OS === 'ios');
     setDate(currentDate);
     let tempDate = new Date(currentDate);
-    let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
-    let fTime = 'Hours: ' + tempDate.getHours() + ' | Minutes: ' + tempDate.getMinutes();
-    setText(fDate + '\n' + fTime);
+    let fDate = (tempDate.getMonth() + 1) + '/' + tempDate.getDate() + '/' + tempDate.getFullYear();
+    let fTime = tempDate.getHours() + ':' + tempDate.getMinutes();
+    setText(fDate + '@' + fTime);
   }
   const showMode = (currentMode) => {
     setShow(true);
@@ -56,15 +56,13 @@ const AppSelect = () => {
           alignSelf: 'center',
           fontSize: 12,
           marginTop: 5,
-          color: '#757677'
+          color: '#757677',
+          marginBottom: 100
         }}
       >
         Select your preferred date+time
       </Text>
       <View>
-        <Text style={{ fontWeight: 'bold', fontSize: 10}}>
-          {text}
-        </Text>
         <Button
           title='Select Date'
           onPress={() => showMode('date')}
@@ -73,17 +71,21 @@ const AppSelect = () => {
           title='Select Time'
           onPress={() => showMode('time')}
         />
-      </View>
       {show && (
         <DateTimePicker
           testId='dateTimePicker'
           value={date}
           mode={mode}
           is24Hour={false}
-          display='default '
+          display='default'
           onChange={onChange}
+          style={{marginRight: 147, marginBottom: 50, marginTop: 20}}
         />
       )}
+      <Text style={{ fontSize: 20, marginLeft: 110}}>
+        {text}
+      </Text>
+      </View>
     </View>
   )
 }

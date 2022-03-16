@@ -12,13 +12,6 @@ import {
   TextInput
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 const AppLogin = ({ navigation }) => {
   const [userInput, setUserInput] = React.useState('');

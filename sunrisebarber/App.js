@@ -11,6 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppLogin from './AppLogin.js';
 import AppHome from './AppHome.js';
+import AppSelect from './AppSelect.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,10 @@ const App = () => {
         <Stack.Screen
           name="home"
           component={AppHome}
+        />
+        <Stack.Screen
+          name="select"
+          component={AppSelect}
         />
       </Stack.Navigator>
     </NavigationContainer>

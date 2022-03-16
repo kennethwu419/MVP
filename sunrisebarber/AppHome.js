@@ -12,15 +12,7 @@ import {
   TextInput
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const AppHome = () => {
+const AppHome = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
@@ -48,17 +40,19 @@ const AppHome = () => {
         Check the availability of your preferred barber
       </Text>
       <View style={styles.imageContainer}>
-        <Image
-          source={require('./assets/barber1.png')}
-          style={{
-            borderWidth: 0.5,
-            width: 150,
-            height: 200,
-            marginLeft: 20,
-            marginRight: 5,
-            marginTop: 0
-          }}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('select')}>
+          <Image
+            source={require('./assets/barber1.png')}
+            style={{
+              borderWidth: 0.5,
+              width: 150,
+              height: 200,
+              marginLeft: 20,
+              marginRight: 5,
+              marginTop: 0
+            }}
+          />
+        </TouchableOpacity>
         <Image
           source={require('./assets/barber2.png')}
           style={{

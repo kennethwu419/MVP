@@ -40,7 +40,7 @@ const AppHome = ({ navigation }) => {
         Check the availability of your preferred barber
       </Text>
       <View style={styles.imageContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('select')}>
+        <TouchableOpacity onPress={() => navigation.navigate('calendar')}>
           <Image
             source={require('./assets/barber1.png')}
             style={{

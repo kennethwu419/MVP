@@ -12,6 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppLogin from './AppLogin.js';
 import AppHome from './AppHome.js';
 import AppCalendar from './AppCalendar.js';
+import AppConfirmation from './AppConfirmation.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,10 @@ const App = () => {
         <Stack.Screen
           name="calendar"
           component={AppCalendar}
+        />
+        <Stack.Screen
+          name="confirmation"
+          component={AppConfirmation}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -14,9 +14,8 @@ import {
   Button,
 } from 'react-native';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import Icon from 'react-native-ionicons';
 
-const AppCalendar = () => {
+const AppCalendar = ({ navigation }) => {
   const [show, setShow] = useState(false);
   const [mode, setMode] = useState('date');
   const [date, setDate] = useState('');
@@ -80,7 +79,7 @@ const AppCalendar = () => {
         <Text
           style={{
             alignSelf: 'center',
-            color: '#E95515',
+            color: 'white',
             fontWeight: 'bold'
           }}
           onPress={() => {
@@ -95,7 +94,7 @@ const AppCalendar = () => {
         <Text
           style={{
             alignSelf: 'center',
-            color: '#E95515',
+            color: 'white',
             fontWeight: 'bold'
           }}
           onPress={() => {
@@ -151,10 +150,11 @@ const AppCalendar = () => {
             color: 'white',
             fontWeight: 'bold'
           }}
-          onPress={() => {
-            showMode();
-            setMode('time');
-          }}
+          onPress={() => navigation.navigate('confirmation',
+          {
+            date: getDate,
+            time: getTime
+          })}
         >
           Confirm
         </Text>
@@ -177,12 +177,12 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
-    backgroundColor: 'white',
+    backgroundColor: 'black',
     padding: 10,
     marginBottom: 10,
     marginTop: 10,
     width: 180,
-    borderWidth: 1,
+    borderWidth: 0,
     borderRadius: 10
   },
   confirmButton: {

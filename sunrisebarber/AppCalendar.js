@@ -19,7 +19,6 @@ const AppCalendar = () => {
   const [show, setShow] = useState(false);
   const [mode, setMode] = useState('date');
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
 
   const showMode = () => {
     setShow(true);
@@ -27,15 +26,35 @@ const AppCalendar = () => {
   const hideMode = () => {
     setShow(false);
   }
-  const handleConfirm = () => {
+  const handleConfirm = (date) => {
+    setDate(date);
     hideMode();
+  }
+  const getDate = () => {
+    let tempDate = date.toString().split(' ');
+    console.log('this is date obj', tempDate);
+    return date !== ''
+    ? `${tempDate[1]}-${tempDate[2]}-${tempDate[3]}`
+    : '';
+  }
+  const getTime = () => {
+    let tempDate = date.toString().split(' ');
+    console.log('this is date obj', tempDate);
+    return date !== ''
+    ? `${tempDate[4]}`
+    : '';
   }
 
   return (
     <View style={styles.container}>
       <Image
         source={require('./assets/logo-white.png')}
-        style={{width: 150, height: 150, alignSelf: 'center', marginTop: 100}}
+        style={{
+          width: 150,
+          height: 150,
+          alignSelf: 'center',
+          marginTop: 100
+        }}
       />
       <Text
         style={{
@@ -79,6 +98,36 @@ const AppCalendar = () => {
         onCancel={hideMode}
         is24Hour={false}
       />
+      <Text
+        style={{
+          fontSize: 20,
+          alignSelf: 'center',
+          fontWeight: 'bold',
+          color: '#757677'
+        }}
+      >
+        {getDate()}
+      </Text>
+      <Text
+        style={{
+          fontSize: 20,
+          alignSelf: 'center',
+          fontWeight: 'bold',
+          color: '#757677'
+        }}
+      >
+        @
+      </Text>
+      <Text
+        style={{
+          fontSize: 20,
+          alignSelf: 'center',
+          fontWeight: 'bold',
+          color: '#757677'
+        }}
+      >
+        {getTime()}
+      </Text>
     </View>
   )
 }

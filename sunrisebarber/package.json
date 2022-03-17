@@ -7,13 +7,18 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "npx start": "npx react-native start",
+    "npx pod": "npx pod-install ios",
+    "npx ios": "npx react-native run-ios"
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^6.0.1",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.0",
     "axios": "^0.26.1",
+    "express": "^4.17.3",
+    "path": "^0.12.7",
     "react": "17.0.2",
     "react-native": "0.67.3",
     "react-native-ionicons": "^4.6.5",

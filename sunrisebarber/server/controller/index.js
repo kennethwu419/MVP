@@ -1,18 +1,13 @@
-const model = require('../models');
-
-const get = (req, res) => {
-  model.get((err, results) => {
-    if (err) {
-      res.status(500).send();
-    } else {
-      res.status(200).send(results);
-    }
-  })
-}
+const db = require('../db');
+const model = require('../model');
 
 const post = (req, res) => {
-  model.post(rq.body, (err, results) => {
+  let theDate = req.body.apptdate;
+  let theTime = req.body.appttime;
+  model.post([theDate, theTime], (err, results) => {
+    console.log(req.body);
     if (err) {
+      console.log('this is error', err);
       res.status(400).send();
     } else {
       res.status(201).send();
@@ -20,6 +15,15 @@ const post = (req, res) => {
   })
 }
 
-module.exports = {
-  get, post
+const get = (req, res) => {
+  model.get(req.query, (err, results) => {
+    if (err) {
+      console.log('this is get error', err);
+      res.status(500).send();
+    } else {
+      res.status(200).send(results);
+    }
+  })
 }
+
+module.exports = { post, get }

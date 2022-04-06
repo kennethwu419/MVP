@@ -14,6 +14,7 @@ import {
   Button,
 } from 'react-native';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import axios from 'axios';
 
 const AppCalendar = ({ navigation }) => {
   const [show, setShow] = useState(false);
@@ -41,6 +42,10 @@ const AppCalendar = ({ navigation }) => {
     return date !== ''
     ? `${tempDate[4].slice(0, 5)}`
     : '';
+  }
+
+  const addAppt = () => {
+    
   }
 
   return (
